@@ -1,0 +1,45 @@
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: #0A0A0A;
+    color: #E5E7EB;
+}
+.gradient-text {
+    background: linear-gradient(90deg, #3B82F6, #A855F7);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-fill-color: transparent;
+}
+.gradient-border {
+    border: 1px solid transparent;
+    background: linear-gradient(#0A0A0A, #0A0A0A) padding-box, linear-gradient(90deg, rgba(59, 130, 246, 0.5), rgba(168, 85, 247, 0.5)) border-box;
+}
+.gradient-border-hover:hover {
+    background: linear-gradient(#111827, #111827) padding-box, linear-gradient(90deg, #3B82F6, #A855F7) border-box;
+}
+.btn-gradient {
+    background: linear-gradient(90deg, #3B82F6, #A855F7);
+    transition: all 0.3s ease;
+}
+.btn-gradient:hover {
+    box-shadow: 0 0 20px rgba(168, 85, 247, 0.5);
+}
+.section {
+    padding-top: 6rem;
+    padding-bottom: 6rem;
+}
+.section-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 1rem;
+}
+.section-subtitle {
+    text-align: center;
+    color: #9CA3AF;
+    max-width: 600px;
+    margin: 0 auto 3rem auto;
+}
+html {
+    scroll-behavior: smooth;
+}
