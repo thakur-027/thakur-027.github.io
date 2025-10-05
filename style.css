@@ -8,7 +8,7 @@ body {
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
-    text-fill-color: transparent;
+    text-emphasis-color: transparent;
 }
 .gradient-border {
     border: 1px solid transparent;
@@ -25,8 +25,8 @@ body {
     box-shadow: 0 0 20px rgba(168, 85, 247, 0.5);
 }
 .section {
-    padding-top: 6rem;
-    padding-bottom: 6rem;
+    padding-top: 3rem; /* Further reduced for a tighter look */
+    padding-bottom: 3rem; /* Further reduced for a tighter look */
 }
 .section-title {
     font-size: 2.5rem;
@@ -43,3 +43,4 @@ body {
 html {
     scroll-behavior: smooth;
 }
+
