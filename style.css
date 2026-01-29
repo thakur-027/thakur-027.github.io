@@ -46,9 +46,19 @@ body {
     text-align: center;
     color: #9CA3AF;
     max-width: 600px;
-    margin: 0 auto 3rem auto;
+    margin: 0 auto 2rem auto; /* Reduced from 3rem to 2rem */
 }
 
 html {
     scroll-behavior: smooth;
+}
+
+/* Reduce gap specifically for About section */
+#about {
+    padding-top: 2rem; /* Reduced padding at top */
+}
+
+/* Optional: Reduce gap between Home and About sections */
+#home {
+    margin-bottom: 0;
 }
