@@ -287,15 +287,15 @@ function drawCursorTrail() {
 }
 
 // Uncomment to enable cursor trail
-// const canvas = document.createElement('canvas');
-// canvas.id = 'cursor-trail';
-// canvas.style.position = 'fixed';
-// canvas.style.top = '0';
-// canvas.style.left = '0';
-// canvas.style.pointerEvents = 'none';
-// canvas.style.zIndex = '9999';
-// document.body.appendChild(canvas);
-// drawCursorTrail();
+const canvas = document.createElement('canvas');
+canvas.id = 'cursor-trail';
+canvas.style.position = 'fixed';
+canvas.style.top = '0';
+canvas.style.left = '0';
+canvas.style.pointerEvents = 'none';
+canvas.style.zIndex = '9999';
+document.body.appendChild(canvas);
+drawCursorTrail();
 
 // ===========================
 // PERFORMANCE OPTIMIZATION
