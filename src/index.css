@@ -1,3 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 /* ===========================
    CUSTOM PROPERTIES
    =========================== */
@@ -16,13 +20,8 @@
 
 /* ===========================
    BASE STYLES
+   (Tailwind's preflight already resets margin/padding/box-sizing)
    =========================== */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
 body {
     font-family: 'Inter', sans-serif;
     background-color: var(--dark-bg);
