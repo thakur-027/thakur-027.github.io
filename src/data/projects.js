@@ -3,7 +3,7 @@ export const projects = [
     key: 'interviewgen',
     title: 'InterviewGen',
     year: '2026',
-    category: 'Full-Stack / AI',
+    category: 'Full Stack - AI',
     description:
       'An AI-powered interview report generator that turns candidate responses into structured, actionable interview reports, built as a full-stack app with a Gemini-powered assessment engine and PDF export.',
     features: [
