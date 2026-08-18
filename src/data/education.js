@@ -4,7 +4,7 @@ export const education = [
     degree: 'B.E. - Electronics and Communication Engineering',
     location: 'Bengaluru, Karnataka',
     period: '2023 - 2027',
-    score: '8.2 CGPA',
+    score: '8.4 CGPA',
   },
   {
     school: 'Roseland International School',
@@ -68,10 +68,10 @@ export const certifications = [
 export const leadership = [
   {
     org: 'E-Cell SMVIT',
-    role: 'Events and Marketing Executive',
+    role: 'Corporate Relations Co-Head',
     period: '2025 - Present',
     description:
-      'Organized and promoted entrepreneurship events on campus, fostering innovation and business thinking among students.',
+      'Organized and promoted entrepreneurship events on Sir MVIT campus, fostering innovation and business thinking among students.',
     icon: 'target',
   },
   {
