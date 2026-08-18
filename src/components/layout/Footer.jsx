@@ -13,7 +13,7 @@ export default function Footer() {
             <h3 className="text-2xl font-bold mb-3 font-space">
               <span className="gradient-text-animated">{profile.name}</span>
             </h3>
-            <p className="text-gray-400 max-w-md leading-relaxed">Android Development · DSA · Problem Solving</p>
+            <p className="text-gray-400 max-w-md leading-relaxed">Development · DSA · Problem Solving</p>
             <div className="flex gap-4 mt-6">
               <a href={profile.social.github} target="_blank" rel="noreferrer" className="social-link-footer" aria-label="GitHub">
                 <Icon name="github" size={20} />
