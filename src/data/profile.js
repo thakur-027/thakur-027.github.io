@@ -2,7 +2,7 @@ export const profile = {
   name: 'Ayush Thakur',
   role: 'ECE Undergrad & Developer',
   tagline:
-    'Building Android apps with clean architecture, solving problems through DSA. Currently pursuing Electronics & Communication Engineering at SMVIT.',
+    'Building Android apps, Full-Stack Web Apps with clean architecture, solving problems through DSA. Currently pursuing Electronics & Communication Engineering at SMVIT.',
   email: 'ayushoct15@gmail.com',
   phone: '+91 8307359456',
   location: 'Bengaluru, Karnataka, India',
