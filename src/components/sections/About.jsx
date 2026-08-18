@@ -11,7 +11,7 @@ export default function About() {
             About <span className="gradient-text-animated">Me</span>
           </h2>
           <p className="section-subtitle max-w-3xl mx-auto">
-            Focused on Android development and DSA, I enjoy designing performant mobile apps, websites, and
+            Focused on Android, Full-Stack development and DSA, I enjoy designing performant mobile apps, websites, and
             tackling algorithmic challenges. I believe in clean architecture, optimized logic, and continuous
             learning. My foundation in Electronics and Communication Engineering adds a structured,
             problem-solving mindset to the way I build software.
