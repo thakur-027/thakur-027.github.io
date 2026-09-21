@@ -1,38 +1,90 @@
+export const technicalMatrix = [
+  {
+    id: 'frontend',
+    tier: 'Client Layer',
+    title: 'Frontend & Mobile',
+    icon: 'web',
+    iconBg: 'bg-primary-container text-on-primary-fixed',
+    description:
+      'Creating fluid, responsive, state-driven interfaces and Android native apps with pixel precision and clean architecture.',
+    skills: [
+      { name: 'React 19 / Modern Web' },
+      { name: 'Kotlin / Jetpack Compose' },
+      { name: 'JavaScript' },
+      { name: 'Tailwind CSS & Styling' },
+    ],
+  },
+  {
+    id: 'backend',
+    tier: 'Service Tier',
+    title: 'Backend & APIs',
+    icon: 'database',
+    iconBg: 'bg-inverse-surface text-inverse-on-surface',
+    description:
+      'Designing scalable RESTful endpoints, event-driven sockets, JWT authentication, and robust data persistence layers.',
+    skills: [
+      { name: 'Node.js / Express 5' },
+      { name: 'MongoDB / Mongoose' },
+      { name: 'REST APIs' },
+      { name: 'Firebase & Cloud Firestore' },
+    ],
+  },
+  {
+    id: 'core',
+    tier: 'Hardware & Algo',
+    title: 'Core & ECE',
+    icon: 'memory',
+    iconBg: 'bg-primary-container text-on-primary-fixed',
+    description:
+      'Low-level memory management, data structures & algorithms, digital logic, and microcontroller interfacing.',
+    skills: [
+      { name: 'C / C++ Programming' },
+      { name: 'Data Structures & Algos' },
+      { name: 'Digital Logic & Verilog' },
+      { name: 'Microcontrollers & Sensors' },
+    ],
+  },
+  {
+    id: 'tools',
+    tier: 'Ecosystem',
+    title: 'Tools',
+    icon: 'deployed_code',
+    iconBg: 'bg-surface-container-high text-on-surface',
+    description:
+      'Workflow automation, version control mastery, UI prototyping, and circuit simulation tooling.',
+    skills: [
+      { name: 'Git & GitHub Workflows' },
+      { name: 'Android Studio / VS Code' },
+      { name: 'Figma' },
+      { name: 'NI Multisim & LabVIEW' },
+    ],
+  },
+]
+
 export const skillCategories = [
   {
     title: 'Programming Languages',
     icon: 'code',
-    gradient: 'linear-gradient(135deg, #F59E0B 0%, #D97706 100%)',
-    items: ['Python', 'C++', 'C', 'Kotlin', 'MATLAB'],
+    items: ['C++', 'C', 'SQL', 'Kotlin', 'JavaScript', 'Python', 'MATLAB'],
   },
   {
     title: 'Mobile Development',
     icon: 'smartphone',
-    gradient: 'linear-gradient(135deg, #3DDC84 0%, #00A86B 100%)',
-    items: ['Android Development', 'Jetpack Compose', 'Firebase', 'Realtime Database', 'XML'],
+    items: ['Android Development', 'Jetpack Compose', 'Firebase', 'Realtime Database', 'MVVM'],
   },
   {
     title: 'Web Technologies',
     icon: 'globe',
-    gradient: 'linear-gradient(135deg, #F43F5E 0%, #E11D48 100%)',
-    items: ['HTML5', 'CSS3', 'JavaScript', 'React', 'Responsive Design'],
+    items: ['React', 'HTML5', 'CSS3 / Tailwind', 'Node.js', 'Express', 'Responsive Design'],
   },
   {
-    title: 'Backend Technologies',
-    icon: 'server',
-    gradient: 'linear-gradient(135deg, #0EA5E9 0%, #0284C7 100%)',
-    items: ['Node.js', 'Express', 'MongoDB', 'Mongoose', 'JWT Auth'],
+    title: 'Database & Backend',
+    icon: 'database',
+    items: ['MongoDB', 'Mongoose', 'JWT Authentication', 'REST APIs', 'Cloud Firestore'],
   },
   {
-    title: 'Developer Tools',
-    icon: 'wrench',
-    gradient: 'linear-gradient(135deg, #10B981 0%, #059669 100%)',
-    items: ['VS Code', 'Android Studio', 'GitHub', 'Figma', 'Canva'],
-  },
-  {
-    title: 'Circuit Design',
-    icon: 'briefcase',
-    gradient: 'linear-gradient(135deg, #8B5CF6 0%, #7C3AED 100%)',
-    items: ['NI Multisim', 'NI LabVIEW', 'Verilog', 'Keil Microvision'],
+    title: 'Hardware & Tools',
+    icon: 'memory',
+    items: ['NI Multisim', 'Verilog', 'Keil Microvision', 'Git / GitHub', 'Figma', 'VS Code'],
   },
 ]

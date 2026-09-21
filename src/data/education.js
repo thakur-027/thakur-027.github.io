@@ -71,7 +71,7 @@ export const leadership = [
     role: 'Corporate Relations Co-Head',
     period: '2025 - Present',
     description:
-      'Organized and promoted entrepreneurship events on Sir MVIT campus, fostering innovation and business thinking among students.',
+      'Liaised with corporate partners to secure sponsorships and drive innovation initiatives across the entrepreneurship cell.',
     icon: 'target',
   },
   {

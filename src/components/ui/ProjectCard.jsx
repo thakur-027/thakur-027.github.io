@@ -1,74 +1,84 @@
-import Icon from './Icon.jsx'
-import useRevealOnScroll from '../../hooks/useRevealOnScroll.js'
-
-export default function ProjectCard({ project, imageOnRight = true }) {
-  const { ref, visible } = useRevealOnScroll()
-
+export default function ProjectCard({ project }) {
   return (
-    <div
-      ref={ref}
-      className="project-card fade-in-up"
-      style={{
-        opacity: visible ? 1 : 0,
-        transform: visible ? 'translateY(0)' : 'translateY(50px)',
-        transition: 'all 0.8s ease',
-      }}
-    >
-      <div className="grid lg:grid-cols-2 gap-8 items-center">
-        <div className={imageOnRight ? 'order-2 lg:order-1' : 'order-2'}>
-          <div className="flex flex-wrap gap-2 mb-4">
-            <span className="badge-year">{project.year}</span>
-            <span className="badge-category">{project.category}</span>
-          </div>
-          <h3 className="text-3xl lg:text-4xl font-bold mb-4 font-space">{project.title}</h3>
-          <p className="text-gray-400 text-lg mb-6 leading-relaxed">{project.description}</p>
+    <div className="group flex flex-col bg-surface-container-lowest rounded-2xl overflow-hidden shadow-xs hover:shadow-xl border border-surface-variant/40 transition-all duration-300">
+      {/* Mockup Visual Frame */}
+      <div className="relative aspect-[16/10] bg-surface-container overflow-hidden">
+        <img
+          className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+          src={project.image}
+          alt={project.imageAlt || project.title}
+          loading="lazy"
+        />
+        <div className="absolute top-4 left-4 flex gap-2">
+          <span className="px-2.5 py-1 rounded-full bg-inverse-surface/90 text-inverse-on-surface font-label-sm text-[11px] backdrop-blur-md font-mono">
+            [ {project.num} ]
+          </span>
+          <span className="px-2.5 py-1 rounded-full bg-primary-container text-on-primary-fixed font-label-sm text-[11px] font-semibold">
+            {project.category}
+          </span>
+        </div>
+      </div>
 
-          <div className="mb-6">
-            <h4 className="font-semibold text-lg mb-3 flex items-center gap-2">
-              <span className="w-1 h-6 bg-gradient-to-b from-blue-500 to-purple-500 rounded-full" />
-              Key Features
-            </h4>
-            <ul className="grid sm:grid-cols-2 gap-3">
+      {/* Content Area */}
+      <div className="p-6 md:p-8 flex flex-col flex-1 justify-between gap-6">
+        <div className="space-y-3">
+          {/* Tech stack tags */}
+          <div className="flex flex-wrap gap-2">
+            {project.stack.map((tech) => (
+              <span
+                key={tech}
+                className="font-label-sm text-[11px] px-2.5 py-1 rounded-md bg-surface-container text-on-surface-variant font-medium"
+              >
+                {tech}
+              </span>
+            ))}
+          </div>
+
+          <h3 className="font-headline-md text-2xl sm:text-[26px] font-serif font-bold text-on-surface group-hover:text-primary transition-colors leading-snug">
+            {project.title}
+          </h3>
+
+          <p className="font-body-md text-sm sm:text-base text-on-surface-variant leading-relaxed">
+            {project.description}
+          </p>
+
+          {/* Key Features List */}
+          {project.features && project.features.length > 0 && (
+            <ul className="pt-2 grid sm:grid-cols-2 gap-2 text-xs text-on-surface-variant/90 border-t border-surface-container pt-3">
               {project.features.map((feature) => (
-                <li key={feature} className="flex items-start gap-2 text-gray-400">
-                  <Icon name="check" size={20} className="text-green-400 mt-0.5 flex-shrink-0" />
+                <li key={feature} className="flex items-start gap-1.5">
+                  <span className="material-symbols-outlined text-sm text-primary flex-shrink-0 mt-0.5">
+                    check_circle
+                  </span>
                   <span>{feature}</span>
                 </li>
               ))}
             </ul>
-          </div>
-
-          <div className="mb-6">
-            <h4 className="font-semibold text-sm text-gray-400 mb-3">Tech Stack</h4>
-            <div className="flex flex-wrap gap-2">
-              {project.stack.map((tech) => (
-                <span key={tech} className="tech-badge">
-                  {tech}
-                </span>
-              ))}
-            </div>
-          </div>
-
-          <a
-            href={project.githubUrl}
-            target="_blank"
-            rel="noreferrer"
-            className="btn-primary group inline-flex"
-            aria-label={`View ${project.title} source code on GitHub`}
-          >
-            <Icon name="github" size={18} />
-            <span>View Code</span>
-            <Icon name="arrow-right" size={16} className="group-hover:translate-x-1 transition-transform" />
-          </a>
+          )}
         </div>
 
-        <div className={imageOnRight ? 'order-1 lg:order-2' : 'order-1'}>
-          <div className="project-image-wrapper">
-            <div className="project-image-glow" />
-            <div className="project-image">
-              <Icon name={project.icon} size={100} className="text-primary-amber" />
-            </div>
-          </div>
+        {/* Project Links & CTAs */}
+        <div className="flex flex-wrap items-center gap-3 pt-4 border-t border-surface-container/60">
+          {project.demoUrl && (
+            <a
+              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-inverse-surface text-inverse-on-surface hover:bg-primary hover:text-on-primary font-label-sm text-xs font-semibold transition-colors"
+              href={project.demoUrl}
+              rel="noreferrer"
+              target="_blank"
+            >
+              <span>{project.demoLabel || 'Live Preview'}</span>
+              <span className="material-symbols-outlined text-sm">arrow_outward</span>
+            </a>
+          )}
+          <a
+            className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-surface-container-high text-on-surface hover:bg-surface-container-highest font-label-sm text-xs font-semibold transition-colors"
+            href={project.githubUrl}
+            rel="noreferrer"
+            target="_blank"
+          >
+            <span className="material-symbols-outlined text-sm">code</span>
+            <span>Source Code</span>
+          </a>
         </div>
       </div>
     </div>
