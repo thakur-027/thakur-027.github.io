@@ -1,5 +1,14 @@
 import interviewgenImg from '../assets/images/projects/interviewgen.png'
+import interviewgen1 from '../assets/images/projects/interviewgen-1.png'
+import interviewgen2 from '../assets/images/projects/interviewgen-2.png'
+import interviewgen3 from '../assets/images/projects/interviewgen-3.png'
+import interviewgen4 from '../assets/images/projects/interviewgen-4.png'
 import bankLedgerImg from '../assets/images/projects/bank-ledger.png'
+import bankLedger1 from '../assets/images/projects/bank-ledger-1.png'
+import bankLedger2 from '../assets/images/projects/bank-ledger-2.png'
+import bankLedger3 from '../assets/images/projects/bank-ledger-3.png'
+import bankLedger4 from '../assets/images/projects/bank-ledger-4.png'
+import bankLedger5 from '../assets/images/projects/bank-ledger-5.png'
 import blogAppImg from '../assets/images/projects/blog-app.png'
 import secureAuthImg from '../assets/images/projects/secure-auth.png'
 
@@ -11,6 +20,7 @@ export const projects = [
     category: 'Full Stack • AI',
     year: '2026',
     image: interviewgenImg,
+    images: [interviewgen1, interviewgen2, interviewgen4, interviewgen3],
     imageAlt: 'InterviewGen AI Evaluation Dashboard and live interface on Vercel',
     description:
       'An AI-powered interview assessment system that converts candidate responses into structured, actionable feedback reports using Gemini AI with PDF export and split cloud deployment.',
@@ -33,6 +43,7 @@ export const projects = [
     category: 'Backend Architecture',
     year: '2026',
     image: bankLedgerImg,
+    images: [bankLedger1, bankLedger4, bankLedger3, bankLedger2, bankLedger5],
     imageAlt: 'Banking transaction ledger service dashboard and API interface',
     description:
       'A high-reliability RESTful backend service for financial transaction processing and ledger tracking, engineered with robust concurrency handling, accounts management, and bcrypt security.',

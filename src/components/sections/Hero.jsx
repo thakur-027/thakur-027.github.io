@@ -1,7 +1,41 @@
+import { useState, useEffect, useCallback } from 'react'
 import { profile, coreTechnologies } from '../../data/profile.js'
 import profileImg from '../../assets/images/profile.jpg'
+import slide1 from '../../assets/images/slide1.jpg'
+import slide2 from '../../assets/images/slide2.jpg'
+import slide3 from '../../assets/images/slide3.jpg'
+import slide4 from '../../assets/images/slide4.jpg'
+import slide5 from '../../assets/images/slide5.jpg'
+
+const heroSlides = [
+  profileImg,
+  slide1,
+  slide2,
+  slide3,
+  slide4,
+  slide5,
+]
+
+const SLIDE_INTERVAL = 4000
 
 export default function Hero() {
+  const [current, setCurrent] = useState(0)
+  const [isPaused, setIsPaused] = useState(false)
+
+  const goTo = useCallback((idx) => {
+    setCurrent((idx + heroSlides.length) % heroSlides.length)
+  }, [])
+
+  const next = useCallback(() => goTo(current + 1), [current, goTo])
+  const prev = useCallback(() => goTo(current - 1), [current, goTo])
+
+  // Auto-advance
+  useEffect(() => {
+    if (isPaused) return
+    const timer = setInterval(next, SLIDE_INTERVAL)
+    return () => clearInterval(timer)
+  }, [next, isPaused])
+
   return (
     <section id="overview" className="max-w-7xl mx-auto px-6 lg:px-12 pt-10 pb-space-2xl w-full">
       {/* Top Micro Tag */}
@@ -80,37 +114,63 @@ export default function Hero() {
           </div>
         </div>
 
-        {/* Right Editorial Portrait Centerpiece */}
+        {/* Right Editorial Portrait Centerpiece — Slideshow */}
         <div className="lg:col-span-5 relative flex justify-center lg:justify-end">
           {/* Radial Glow Aura Background */}
           <div className="absolute -inset-4 bg-primary-container/30 rounded-3xl blur-2xl -z-10"></div>
-          <div className="w-full max-w-md bg-surface-container-lowest p-4 rounded-2xl shadow-xl border border-surface-variant/40 flex flex-col gap-3 relative">
-            {/* Card Diagnostics Bar */}
+          <div
+            className="w-full max-w-md bg-surface-container-lowest p-4 rounded-2xl shadow-xl border border-surface-variant/40 flex flex-col gap-3 relative"
+            onMouseEnter={() => setIsPaused(true)}
+            onMouseLeave={() => setIsPaused(false)}
+          >
+            {/* Card Diagnostics Bar — dynamic counter */}
             <div className="flex items-center justify-between px-2 py-1">
               <span className="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">
-                Fig. 01 • Portrait Artifact
+                Fig. {String(current + 1).padStart(2, '0')} • Portrait Artifact
               </span>
               <span className="font-label-sm text-label-sm text-primary font-semibold">
                 LIVE // DEV_READY
               </span>
             </div>
 
-            {/* Profile Photo Frame */}
+            {/* Slideshow Photo Frame */}
             <div className="relative w-full aspect-[4/5] rounded-xl overflow-hidden bg-surface-container flex flex-col justify-end group">
-              <img
-                className="absolute inset-0 w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105"
-                src={profileImg}
-                alt={profile.name}
-                onError={(e) => {
-                  // Fallback if local image needs default styling
-                  e.currentTarget.src =
-                    'https://lh3.googleusercontent.com/aida-public/AB6AXuBjz_ApEsSfswbRdA0bTfPp8YEAkmEh5cuZ97vpm9Q03kkr6NuHuiXV8n3t_zpAQhDvt7eAn4hDwx4G3BAbuxhv56D5nEYExmuGd_R4VNfAYO2HATpSmLRmfwEh_o6WOOtO7XSrIj-q4mJ0wjNAwB3AsNM1JxHRfNS42CgAKqQB7DQDdf1wYMY81-olZX7MqMQ1wsevxYQv9LtFpcRI9WHOrWGvrU7D6GyCIKIugR5Z0grhVhLr2sRHag'
-                }}
-              />
+              {/* Stacked crossfade images */}
+              {heroSlides.map((src, i) => (
+                <img
+                  key={i}
+                  className="absolute inset-0 w-full h-full object-cover object-top transition-all duration-700 ease-in-out"
+                  style={{
+                    opacity: i === current ? 1 : 0,
+                    transform: i === current ? 'scale(1)' : 'scale(1.04)',
+                  }}
+                  src={src}
+                  alt={`${profile.name} — photo ${i + 1}`}
+                  draggable={false}
+                />
+              ))}
+
               {/* Atmospheric Gradient Scrim */}
-              <div className="absolute inset-0 bg-gradient-to-t from-inverse-surface/90 via-inverse-surface/20 to-transparent pointer-events-none"></div>
+              <div className="absolute inset-0 bg-gradient-to-t from-inverse-surface/90 via-inverse-surface/20 to-transparent pointer-events-none z-[1]"></div>
+
+              {/* Prev / Next Arrows — visible on hover */}
+              <button
+                onClick={prev}
+                aria-label="Previous photo"
+                className="absolute left-2 top-1/2 -translate-y-1/2 z-[3] w-9 h-9 rounded-full bg-inverse-surface/50 backdrop-blur-sm text-inverse-on-surface flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 hover:bg-inverse-surface/80 cursor-pointer"
+              >
+                <span className="material-symbols-outlined text-lg">chevron_left</span>
+              </button>
+              <button
+                onClick={next}
+                aria-label="Next photo"
+                className="absolute right-2 top-1/2 -translate-y-1/2 z-[3] w-9 h-9 rounded-full bg-inverse-surface/50 backdrop-blur-sm text-inverse-on-surface flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 hover:bg-inverse-surface/80 cursor-pointer"
+              >
+                <span className="material-symbols-outlined text-lg">chevron_right</span>
+              </button>
+
               {/* Inset Badge on Image */}
-              <div className="relative z-10 p-5 flex flex-col text-inverse-on-surface">
+              <div className="relative z-[2] p-5 flex flex-col text-inverse-on-surface">
                 <div className="flex items-center gap-2 mb-1">
                   <span className="w-2 h-2 rounded-full bg-primary-container shadow-[0_0_8px_#ccff00]"></span>
                   <span className="font-label-sm text-label-sm uppercase tracking-widest text-primary-container font-semibold">
@@ -118,11 +178,27 @@ export default function Hero() {
                   </span>
                 </div>
                 <p className="font-headline-sm text-lg sm:text-xl font-semibold text-inverse-on-surface">
-                  ECE Undergrad &amp; Full Stack Developer
+                  Full Stack &amp; Android Developer
                 </p>
                 <p className="font-body-sm text-xs sm:text-sm text-inverse-on-surface/80 mt-1">
                   {profile.location} • Remote
                 </p>
+              </div>
+
+              {/* Dot Indicators */}
+              <div className="absolute bottom-[110px] left-1/2 -translate-x-1/2 z-[3] flex items-center gap-2">
+                {heroSlides.map((_, i) => (
+                  <button
+                    key={i}
+                    onClick={() => goTo(i)}
+                    aria-label={`Go to photo ${i + 1}`}
+                    className={`rounded-full transition-all duration-300 cursor-pointer ${
+                      i === current
+                        ? 'w-6 h-2 bg-primary-container shadow-[0_0_8px_#ccff00]'
+                        : 'w-2 h-2 bg-inverse-on-surface/50 hover:bg-inverse-on-surface/80'
+                    }`}
+                  />
+                ))}
               </div>
             </div>
 
